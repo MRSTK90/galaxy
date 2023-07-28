@@ -1,7 +1,14 @@
 server:
   servlet:
-    context-path: /
+    context-path: /user
   port: 9991
+
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://anthouse.works:13306/KST?characterEncoding=UTF-8&serverTimezone=Asia/Seoul&rewriteBatchedStatements=true
+    username: KST
+    password: kst123!@#
 
 logging:
   level:

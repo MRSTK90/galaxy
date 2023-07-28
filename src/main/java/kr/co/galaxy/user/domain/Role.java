@@ -5,16 +5,20 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.util.Date;
+import lombok.Getter;
 
 @Entity
-public class User {
+@Getter
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String email;
+    private Long id;
+
     private String name;
-    private String password;
+
     private Date createDatetime;
+
     private Date updateDatetime;
 
 }

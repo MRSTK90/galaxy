@@ -1,5 +1,8 @@
 package kr.co.galaxy.user.infra;
 
-public interface UserRepository {
+import kr.co.galaxy.user.domain.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, String> {
 
 }
