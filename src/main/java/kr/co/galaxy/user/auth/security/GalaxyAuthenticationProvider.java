@@ -18,12 +18,19 @@ public class GalaxyAuthenticationProvider implements AuthenticationProvider {
         String password = authentication.getCredentials().toString();
         UserDetails user = userDetailsService.loadUserByUsername(username);
         //user null check
+        if (user == null) {
+            throw new IllegalArgumentException();
+        }
         //username, password check
-        return new GalaxyAuthenticationToken(user.getAuthorities());
+        if (!user.getPassword().equals(password)) {
+            throw new IllegalArgumentException();
+        }
+        return new GalaxyAuthenticationToken(user.getAuthorities(), user.getUsername(),
+                user.getPassword());
     }
 
     @Override
     public boolean supports(Class<?> authentication) {
-        return false;
+        return authentication.isAssignableFrom(GalaxyAuthenticationToken.class);
     }
 }

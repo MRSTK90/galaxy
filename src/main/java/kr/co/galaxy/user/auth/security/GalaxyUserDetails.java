@@ -1,9 +1,11 @@
 package kr.co.galaxy.user.auth.security;
 
 import java.util.Collection;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+@AllArgsConstructor
 public class GalaxyUserDetails implements UserDetails {
     private String username;
     private String password;

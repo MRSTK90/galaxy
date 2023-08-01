@@ -1,6 +1,7 @@
 package kr.co.galaxy.user.auth.security;
 
 import java.util.Collection;
+import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -19,6 +20,21 @@ public class GalaxyAuthenticationToken extends AbstractAuthenticationToken {
     public GalaxyAuthenticationToken(
             Collection<? extends GrantedAuthority> authorities) {
         super(authorities);
+    }
+
+    public GalaxyAuthenticationToken(String email, String credentials) {
+        super(null);
+        this.email = email;
+        this.credentials = credentials;
+        setAuthenticated(false);
+    }
+
+    public GalaxyAuthenticationToken(Collection<? extends GrantedAuthority> authorities,
+            String email,
+            String credentials) {
+        super(authorities);
+        this.email = email;
+        this.credentials = credentials;
     }
 
     @Override
