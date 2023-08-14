@@ -13,7 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-@Component
+
 @RequiredArgsConstructor
 public class LoginFilter extends OncePerRequestFilter {
 
@@ -52,7 +52,7 @@ public class LoginFilter extends OncePerRequestFilter {
 
     private void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain, Authentication authentication){
         // 1. make token
-        // 2. redirect
+        // 2. response
     }
 
     private void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, Exception ex) {
