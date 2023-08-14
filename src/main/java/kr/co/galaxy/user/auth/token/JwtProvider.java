@@ -8,7 +8,7 @@ public class JwtProvider {
 
     private String secretKey;
 
-    public String create(){
+    public String create(TokenRequest request){
         return Jwts.builder()
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime() + 999999999))
