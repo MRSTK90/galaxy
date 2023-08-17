@@ -16,16 +16,13 @@ import lombok.Getter;
 
 @Entity
 @Getter
-public class User {
+public class User extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String email;
     private String name;
     private String password;
-    private Date createDatetime;
-    private Date updateDatetime;
-
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(
             name ="USER_ROLE",

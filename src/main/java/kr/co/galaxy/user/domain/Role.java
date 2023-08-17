@@ -9,7 +9,7 @@ import lombok.Getter;
 
 @Entity
 @Getter
-public class Role {
+public class Role extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,8 +17,6 @@ public class Role {
 
     private String name;
 
-    private Date createDatetime;
 
-    private Date updateDatetime;
 
 }

@@ -25,8 +25,13 @@ public class SecurityConfig {
                 .cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request ->
                         request.requestMatchers(HttpMethod.POST, "/login").permitAll()
+
                                 .anyRequest().authenticated()
                 );
+
+        http.authorizeHttpRequests(request ->
+                request.requestMatchers(HttpMethod.POST, "/login").anonymous()
+                        .anyRequest().authenticated());
         http.addFilterBefore(new LoginFilter(galaxyAuthenticationProvider()), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
