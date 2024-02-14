@@ -1,4 +1,4 @@
-package kr.co.galaxy.apis.customer;
+package kr.co.galaxy.apis.manager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Class Description 
  *
  *
- * @class CustomerApiApplication
+ * @class ManagerApiApplication
  * @author SungTae Kim
  * @version 1.0
  * @modification
@@ -19,9 +19,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
-public class CustomerApiApplication {
-
+public class ManagerApiApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CustomerApiApplication.class, args);
+        SpringApplication.run(ManagerApiApplication.class, args);
     }
 }

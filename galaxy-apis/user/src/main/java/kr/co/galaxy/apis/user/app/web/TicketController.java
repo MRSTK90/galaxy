@@ -1,17 +1,18 @@
-package kr.co.galaxy.apis.customer.apps.app.web;
+package kr.co.galaxy.apis.user.app.web;
 
+import kr.co.galaxy.apis.user.app.application.TicketService;
+import kr.co.galaxy.apis.user.app.application.dto.TicketResponse;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalTime;
-
 /**
  * Class Description 
  *
  *
- * @class TestController
+ * @class TicketController
  * @author SungTae Kim
  * @version 1.0
  * @modification
@@ -23,13 +24,14 @@ import java.time.LocalTime;
  */
 
 @RestController
-@RequestMapping("test")
-public class TestController {
+@RequiredArgsConstructor
+@RequestMapping("ticket")
+public class TicketController {
 
-    @GetMapping("time")
-    public ResponseEntity<Object> time(String time){
-        LocalTime localTime = LocalTime.parse(time);
+    private final TicketService ticketService;
 
-        return ResponseEntity.ok(localTime);
+    @GetMapping
+    public ResponseEntity<TicketResponse> get(Long id){
+        return ResponseEntity.ok(ticketService.findTicketResponseById(id));
     }
 }
