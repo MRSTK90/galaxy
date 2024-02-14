@@ -18,14 +18,14 @@ public class Ticket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="ID", nullable = false)
+    @Column(name = "ID", nullable = false)
     private long id;
 
     @UuidGenerator(style = UuidGenerator.Style.TIME)
     @Column(name = "TID", columnDefinition = "BINARY(16)", nullable = false)
     private UUID tid;
 
-    @Column(name= "TYPE", nullable = false)
+    @Column(name = "TYPE", nullable = false)
     private String type;
 
     @ColumnDefault("0")
