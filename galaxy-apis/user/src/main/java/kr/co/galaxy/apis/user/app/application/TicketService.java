@@ -3,6 +3,7 @@ package kr.co.galaxy.apis.user.app.application;
 import kr.co.galaxy.apis.user.app.application.dto.TicketResponse;
 import kr.co.galaxy.core.domain.ticket.Ticket;
 import kr.co.galaxy.core.domain.ticket.TicketRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,17 +22,16 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
+@RequiredArgsConstructor
 public class TicketService {
 
-    private TicketRepository ticketRepository;
+    private final TicketRepository ticketRepository;
 
-    public TicketService(TicketRepository ticketRepository) {
-        this.ticketRepository = ticketRepository;
-    }
     public TicketResponse findTicketResponseById(Long id){
         return TicketResponse.of(findById(id));
     }
     public Ticket findById(Long id){
-        return ticketRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        return ticketRepository.findById(id)
+                .orElseThrow(IllegalArgumentException::new);
     }
 }

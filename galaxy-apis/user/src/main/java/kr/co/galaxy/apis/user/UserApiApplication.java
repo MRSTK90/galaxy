@@ -17,7 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 2024-02-14      SungTae Kim	    최초 작성		
  * </pre>
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"kr.co.galaxy"})
 public class UserApiApplication {
     public static void main(String[] args) {
         SpringApplication.run(UserApiApplication.class, args);
