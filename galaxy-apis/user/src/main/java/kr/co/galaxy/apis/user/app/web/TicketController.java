@@ -1,12 +1,14 @@
 package kr.co.galaxy.apis.user.app.web;
 
 import kr.co.galaxy.apis.user.app.application.TicketService;
+import kr.co.galaxy.apis.user.app.application.dto.TicketRequest;
 import kr.co.galaxy.apis.user.app.application.dto.TicketResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.net.URI;
+import java.util.UUID;
 
 /**
  * Class Description 
@@ -31,7 +33,27 @@ public class TicketController {
     private final TicketService ticketService;
 
     @GetMapping
-    public ResponseEntity<TicketResponse> get(Long id){
+    public ResponseEntity<TicketResponse> get(@RequestParam(name = "id") Long id){
         return ResponseEntity.ok(ticketService.findTicketResponseById(id));
+    }
+
+    @PostMapping("create")
+    public ResponseEntity<TicketResponse> create(@RequestBody TicketRequest request){
+        TicketResponse response = ticketService.create(request);
+        return ResponseEntity.created(URI.create("/ticket/"+response.getTid())).body(response);
+    }
+
+    @PatchMapping("update/{id}")
+    public ResponseEntity<TicketResponse> update(@PathVariable UUID id, @RequestParam(name = "count") int count){
+        ticketService.update(id, count);
+        return ResponseEntity.ok().build();
+    }
+
+
+
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<TicketResponse> delete(@PathVariable UUID id){
+        ticketService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }

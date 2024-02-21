@@ -1,9 +1,6 @@
 rootProject.name = 'galaxy'
 include 'galaxy-core:domain'
 include 'galaxy-core:infra'
-include 'galaxy-apis'
 include 'galaxy-apis:manager'
-findProject(':galaxy-apis:manager')?.name = 'manager'
 include 'galaxy-apis:user'
-findProject(':galaxy-apis:user')?.name = 'user'
 

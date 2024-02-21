@@ -22,7 +22,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration(proxyBeanMethods = false)
 @EnableGalaxyConfig({
         GalaxyConfigGroup.JASYPT,
-        GalaxyConfigGroup.JPA
+        GalaxyConfigGroup.JPA,
+        GalaxyConfigGroup.REDIS
 })
 public class InfraConfig {
 }

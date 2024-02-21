@@ -4,10 +4,12 @@ jar { enabled = false }
 
 dependencies {
 
+
     runtimeOnly 'com.h2database:h2'
     implementation project(":galaxy-core:domain")
     implementation project(":galaxy-core:infra")
 
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    testImplementation 'io.res-assured:rest-assured'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    testImplementation 'io.rest-assured:rest-assured'
 }

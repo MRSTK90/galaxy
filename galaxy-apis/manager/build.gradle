@@ -8,5 +8,5 @@ dependencies {
     implementation project(":galaxy-core:domain")
     implementation project(":galaxy-core:infra")
 
-    testImplementation 'io.res-assured:rest-assured'
+    testImplementation 'io.rest-assured:rest-assured'
 }

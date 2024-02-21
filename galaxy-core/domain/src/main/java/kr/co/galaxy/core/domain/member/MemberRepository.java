@@ -1,4 +1,4 @@
-package kr.co.galaxy.core.domain.ticket;
+package kr.co.galaxy.core.domain.member;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -8,18 +8,17 @@ import java.util.UUID;
  * Class Description 
  *
  *
- * @class TicketRepository
+ * @class MemberRepository
  * @author SungTae Kim
  * @version 1.0
  * @modification
  * <pre>
  * since	    author	        description
  * ---------	------------	---------------------
- * 2024-02-14      SungTae Kim	    최초 작성		
+ * 2024-02-20      SungTae Kim	    최초 작성		
  * </pre>
  */
-public interface TicketRepository extends JpaRepository<Ticket, Long> {
+public interface MemberRepository extends JpaRepository<Member, Long> {
 
-    Ticket findTicketByTid(UUID tid);
-    void deleteTicketByTid(UUID tid);
+    Member findMemberByMid(UUID mid);
 }
