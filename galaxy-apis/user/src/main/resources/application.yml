@@ -5,6 +5,15 @@ server:
 spring:
   application:
     name: galaxy-user
+
+  config:
+    import: "optional:configserver:http://localhost:8002"
+  cloud:
+    config:
+      name: user
+      profile: test
+
+
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:galaxy;
@@ -45,3 +54,5 @@ eureka:
 logging:
   level:
     root: debug
+
+

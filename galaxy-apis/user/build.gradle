@@ -15,6 +15,7 @@ dependencies {
 
 
 
+
     runtimeOnly 'com.h2database:h2'
     implementation project(":galaxy-core:domain")
     implementation project(":galaxy-core:infra")
@@ -22,5 +23,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+
     testImplementation 'io.rest-assured:rest-assured'
 }
