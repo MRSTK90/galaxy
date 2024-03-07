@@ -3,6 +3,8 @@ server:
   servlet:
     context-path: /user
 spring:
+  application:
+    name: galaxy-user
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:galaxy;
@@ -31,6 +33,13 @@ spring:
       host: localhost
       port: 6379
       password: osstem
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8001/eureka
 
 
 logging:
