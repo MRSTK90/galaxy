@@ -29,10 +29,10 @@ import java.util.List;
 @RequestMapping("config")
 public class ConfigController {
 
-    @Value("${galaxy.use}")
+    @Value("${galaxy.use: false}")
     private boolean use;
 
-    @Value("${galaxy.key}")
+    @Value("${galaxy.key: val}")
     private String value;
 
     @GetMapping
